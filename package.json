@@ -68,6 +68,7 @@
     "site:build": "run-s site:build:*",
     "site:build:install": "cd site && npm install --no-audit",
     "site:build:assets": "cd site && npm run build",
+    "site:build:index": "npx pagefind --site site/dist",    
     "postinstall-pack": "node ./scripts/postinstall.js",
     "postinstall": "npm run build && node ./scripts/postinstall.js",
     "prepublishOnly": "node ./scripts/prepare-for-publish.js",
