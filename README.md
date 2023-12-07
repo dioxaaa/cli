@@ -1,124 +1,91 @@
-![Netlify CLI](cli.png)
+<p align="center">
+  <a href="http://materializecss.com/">
+    <img src="http://materializecss.com/res/materialize.svg" width="150">
+  </a>
+</p>
 
-[![Coverage Status](https://codecov.io/gh/netlify/cli/branch/main/graph/badge.svg)](https://codecov.io/gh/netlify/cli)
-[![npm version][npm-img]][npm] [![downloads][dl-img]][dl] [![netlify-status][netlify-img]][netlify]
-[![security][snyk-img]][snyk]
+<h3 align="center">MaterializeCSS</h3>
 
-Interact with [Netlify](http://netlify.com/) from the comfort of your CLI.
-
-See the [CLI command line reference](https://cli.netlify.com/commands/) to get started and the docs on using
-[Netlify Dev](https://github.com/netlify/cli/blob/main/docs/netlify-dev.md) to run your site locally.
+<p align="center">
+  Materialize, a CSS Framework based on material design.
+  <br>
+  <a href="http://materializecss.com/"><strong>-- Browse the docs --</strong></a>
+  <br>
+  <br>
+  <a href="https://travis-ci.org/Dogfalo/materialize">
+    <img src="https://travis-ci.org/Dogfalo/materialize.svg?branch=master" alt="Travis CI badge">
+  </a>
+  <a href="https://badge.fury.io/js/materialize-css">
+    <img src="https://badge.fury.io/js/materialize-css.svg" alt="npm version badge">
+  </a>
+  <a href="https://cdnjs.com/libraries/materialize">
+    <img src="https://img.shields.io/cdnjs/v/materialize.svg" alt="CDNJS version badge">
+  </a>
+  <a href="https://david-dm.org/Dogfalo/materialize">
+    <img src="https://david-dm.org/Dogfalo/materialize/status.svg" alt="dependencies Status badge">
+    </a>
+  <a href="https://david-dm.org/Dogfalo/materialize#info=devDependencies">
+    <img src="https://david-dm.org/Dogfalo/materialize/dev-status.svg" alt="devDependency Status badge">
+  </a>
+  <a href="https://gitter.im/Dogfalo/materialize">
+    <img src="https://badges.gitter.im/Join%20Chat.svg" alt="Gitter badge">
+  </a>
+</p>
 
 ## Table of Contents
-
-<!-- AUTO-GENERATED-CONTENT:START (TOC:collapse=true&collapseText=Click to expand) -->
-<details>
-<summary>Click to expand</summary>
-
-- [Installation](#installation)
-- [Usage](#usage)
+- [Quickstart](#quickstart)
 - [Documentation](#documentation)
-- [Commands](#commands)
-  - [api](#api)
-  - [blobs](#blobs)
-  - [build](#build)
-  - [completion](#completion)
-  - [deploy](#deploy)
-  - [dev](#dev)
-  - [env](#env)
-  - [functions](#functions)
-  - [init](#init)
-  - [integration](#integration)
-  - [link](#link)
-  - [login](#login)
-  - [open](#open)
-  - [recipes](#recipes)
-  - [serve](#serve)
-  - [sites](#sites)
-  - [status](#status)
-  - [switch](#switch)
-  - [unlink](#unlink)
-  - [watch](#watch)
+- [Supported Browsers](#supported-browsers)
+- [Changelog](#changelog)
+- [Testing](#testing)
 - [Contributing](#contributing)
-- [Development](#development)
-- [License](#license)
+- [Copyright and license](#copyright-and-license)
 
-</details>
-<!-- AUTO-GENERATED-CONTENT:END -->
+## Quickstart:
+Read the [getting started guide](http://materializecss.com/getting-started.html) for more information on how to use materialize.
 
-## Installation
-
-Netlify CLI requires [Node.js](https://nodejs.org) version 18.14.0 or above. To install, run the following command from any
-directory in your terminal:
-
-```bash
-npm install netlify-cli -g
-```
-
-When using the CLI in a CI environment we recommend installing it locally as a development dependency, instead of
-globally. To install locally, run the following command from the root directory of your project:
-
-```bash
-npm install --save-dev netlify-cli
-```
-
-**Important:** Running `npm install netlify-cli -g` in CI means you're always installing the latest version of the CLI,
-including **breaking changes**. When you install locally and use a
-[lock file](https://docs.npmjs.com/cli/v7/commands/npm-ci) you guarantee reproducible builds. To manage CLI updates we
-recommend using an automated tool like [renovate](https://github.com/renovatebot/renovate) or
-[dependabot](https://github.com/dependabot).
-
-Alternatively you may also use Homebrew: `brew install netlify-cli` (thanks
-[@cglong](https://github.com/netlify/cli/issues/291)).
-
-## Usage
-
-Installing the CLI globally provides access to the `netlify` command.
-
-```sh-session
-netlify [command]
-
-# Run `help` for detailed information about CLI commands
-netlify [command] help
-```
+- [Download the latest release](https://github.com/Dogfalo/materialize/releases/latest) of materialize directly from GitHub. ([Beta](https://github.com/Dogfalo/materialize/releases/))
+- Clone the repo: `git clone https://github.com/Dogfalo/materialize.git` (Beta: `git clone -b v1-dev https://github.com/Dogfalo/materialize.git`)
+- Include the files via [cdnjs](https://cdnjs.com/libraries/materialize). More [here](http://materializecss.com/getting-started.html). ([Beta](https://cdnjs.com/libraries/materialize/1.0.0-beta))
+- Install with [npm](https://www.npmjs.com): `npm install materialize-css` (Beta: `npm install materialize-css@next`)
+- Install with [Bower](https://bower.io): `bower install materialize` ([DEPRECATED](https://bower.io/blog/2017/how-to-migrate-away-from-bower/))
+- Install with [Atmosphere](https://atmospherejs.com): `meteor add materialize:materialize` (Beta: `meteor add materialize:materialize@=1.0.0-beta`)
 
 ## Documentation
+The documentation can be found at <http://materializecss.com>. To run the documentation locally on your machine, you need [Node.js](https://nodejs.org/en/) installed on your computer.
 
-To learn how to log in to Netlify and start deploying sites, visit the
-[documentation on Netlify](https://docs.netlify.com/cli/get-started/).
+### Running documentation locally
+Run these commands to set up the documentation:
 
+```bash
+git clone https://github.com/Dogfalo/materialize
+cd materialize
+npm install
+```
 
-## Commands
+Then run `grunt monitor` to compile the documentation. When it finishes, open a new browser window and navigate to `localhost:8000`. We use [BrowserSync](https://www.browsersync.io/) to display the documentation.
 
-For a full command reference visit [cli.netlify.com](https://cli.netlify.com/).
+### Documentation for previous releases
+Previous releases and their documentation are available for [download](https://github.com/Dogfalo/materialize/releases).
+
+## Supported Browsers:
+Materialize is compatible with:
+
+- Chrome 35+
+- Firefox 31+
+- Safari 9+
+- Opera
+- Edge
+- IE 11+
+
+## Changelog
+For changelogs, check out [the Releases section of materialize](https://github.com/Dogfalo/materialize/releases) or the [CHANGELOG.md](CHANGELOG.md).
+
+## Testing
+We use Jasmine as our testing framework and we're trying to write a robust test suite for our components. If you want to help, [here's a starting guide on how to write tests in Jasmine](CONTRIBUTING.md#jasmine-testing-guide).
 
 ## Contributing
+Check out the [CONTRIBUTING document](CONTRIBUTING.md) in the root of the repository to learn how you can contribute. You can also browse the [help-wanted](https://github.com/Dogfalo/materialize/labels/help-wanted) tag in our issue tracker to find things to do.
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for more info on how to make contributions to this project.
-
-## Development
-
-You'll need to follow these steps to run Netlify CLI locally:
-
-    uninstall any globally installed versions of netlify-cli
-    clone and install deps for https://github.com/netlify/cli
-    npm link from inside the cli folder
-
-Now you're both ready to start testing and to contribute to the project!
-
-## License
-
-MIT. See [LICENSE](LICENSE) for more details.
-
-[npm-img]: https://img.shields.io/npm/v/netlify-cli.svg
-[npm]: https://npmjs.org/package/netlify-cli
-[av-img]: https://ci.appveyor.com/api/projects/status/imk2qjc34ly7x11b/branch/master?svg=true
-[av]: https://ci.appveyor.com/project/netlify/cli
-[dl-img]: https://img.shields.io/npm/dm/netlify-cli.svg
-[dl]: https://npmjs.org/package/netlify-cli
-[david-img]: https://david-dm.org/netlify/cli/status.svg
-[david]: https://david-dm.org/netlify/cli
-[snyk-img]: https://snyk.io/test/npm/netlify-cli/badge.svg
-[snyk]: https://snyk.io/test/npm/netlify-cli
-[netlify-img]: https://api.netlify.com/api/v1/badges/d3807379-2dcf-4a43-9c00-e7e8d90ecf70/deploy-status
-[netlify]: https://app.netlify.com/sites/cli/deploys
+## Copyright and license
+Code Copyright 2018 Materialize. Code released under the MIT license.
